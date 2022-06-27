@@ -1,70 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="2dp"
-    android:background="@drawable/home_post_shpae"
-    android:orientation="vertical"
-    android:padding="3dp">
-    
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
     <LinearLayout
+        android:id="@+id/layout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginBottom="2dp"
+        android:background="@drawable/home_post_shpae"
+        android:orientation="vertical"
+        android:padding="3dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/post_detail_profile_image"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_marginLeft="8dp"
+                android:src="@drawable/common_google_signin_btn_icon_dark" />
+
+            <TextView
+                android:id="@+id/post_detail_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/post_detail_timestamp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="20dp"
+                android:text="TextView" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="3dp"
+            android:background="#592C2828"
+            android:orientation="vertical" />
 
         <ImageView
-            android:id="@+id/post_detail_profile_image"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_gravity="center_horizontal|center_vertical"
-            android:layout_marginLeft="8dp"
-            android:src="@drawable/common_google_signin_btn_icon_dark" />
+            android:id="@+id/post_detail_content_image"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_marginTop="5dp"
+            app:srcCompat="@drawable/googleg_standard_color_18" />
 
         <TextView
-            android:id="@+id/post_username"
-            android:layout_width="wrap_content"
+            android:id="@+id/post_detail_text"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
-            android:text="TextView" />
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:text="내용" />
 
-        <TextView
-            android:id="@+id/post_detail_timestamp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="20dp"
-            android:text="TextView" />
-
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginBottom="3dp"
-        android:background="#592C2828"
-        android:orientation="vertical"></LinearLayout>
-
-    <ImageView
-        android:id="@+id/post_detail_content_image"
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:layout_marginTop="5dp"
-        app:srcCompat="@drawable/googleg_standard_color_18" />
-
-    <TextView
-        android:id="@+id/post_detail_text"
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="내용" />
+        android:layout_below="@id/layout1"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="댓글"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/post_detail_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"></LinearLayout>
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/comment_shape"
+        android:baselineAligned="false"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/post_detail_comment_text"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:ems="10"
+            android:hint="댓글을 입력하세요."
+            android:inputType="textPersonName"
+            android:singleLine="true"
+            android:textColor="#FFFBFB"
+            android:textColorHint="#E1CDCD" />
+
+        <Button
+            android:id="@+id/comment_button"
+            android:layout_width="45dp"
+            android:layout_height="wrap_content"
+            android:text="확인"
+            android:textAllCaps="false"
+            android:textColor="#DDCCCC"
+            android:textSize="14sp" />
+    </LinearLayout>
 
 
-</LinearLayout>
+</RelativeLayout>

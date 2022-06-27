@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="2dp"
+    android:background="@drawable/home_post_shpae"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="4dp">
+
+    <ImageView
+        android:id="@+id/comment_profile_userimage"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="7.5dp"
+        android:layout_marginTop="7.5dp"
+        android:layout_marginEnd="7.5dp"
+        android:layout_marginBottom="7.5dp"
+        android:src="@drawable/ic_account" />
+
+    <TextView
+        android:id="@+id/comment_profile_userid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/comment_profile_userimage"
+        android:layout_alignBottom="@id/comment_profile_userimage"
+        android:layout_alignParentTop="false"
+        android:layout_alignParentBottom="false"
+        android:layout_centerHorizontal="false"
+        android:layout_centerVertical="false"
+        android:layout_marginLeft="7dp"
+        android:layout_toRightOf="@id/comment_profile_userimage"
+        android:gravity="center"
+        android:inputType="textMultiLine"
+        android:text="유저 아이디"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/comment_explain_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/comment_profile_userimage"
+        android:layout_alignStart="@id/comment_profile_userimage"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="2dp"
+        android:text="댓글 내용" />
+
+    <TextView
+        android:id="@+id/comment_timestamp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/comment_profile_userid"
+        android:layout_alignBottom="@id/comment_profile_userid"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"
+        android:gravity="center"
+        android:text="TextView" />
+</RelativeLayout>

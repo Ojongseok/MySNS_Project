@@ -58,7 +58,7 @@ class AddPostActivity : AppCompatActivity() {
             var postDTO = PostDTO()
             postDTO.imageUrl = it.toString()
             postDTO.uid = auth?.currentUser?.uid
-            postDTO.expain = addpost_edit_explain.text.toString()
+            postDTO.explain = addpost_edit_explain.text.toString()
             postDTO.userId = auth?.currentUser?.email
             postDTO.timestamp = System.currentTimeMillis()
 

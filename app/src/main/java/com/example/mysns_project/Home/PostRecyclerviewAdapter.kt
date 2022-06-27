@@ -1,5 +1,6 @@
 package com.example.mysns_project.Home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -51,9 +52,9 @@ class PostRecyclerviewAdapter(var frag : Fragment) : RecyclerView.Adapter<Recycl
                 Glide.with(holder.itemView.context).load(url).into(viewHolder.post_detail_profile_image)
             }
         }
-        viewHolder.post_username.text = postDTOs[position].userId
+        viewHolder.post_detail_username.text = postDTOs[position].userId
         Glide.with(holder.itemView.context).load(postDTOs[position].imageUrl).into(viewHolder.post_detail_content_image)
-        viewHolder.post_detail_text.text = postDTOs[position].expain
+        viewHolder.post_detail_text.text = postDTOs[position].explain
         viewHolder.post_favorite_counter.text = "좋아요"+ postDTOs[position].favoriteCount+"개"
         viewHolder.post_detail_timestamp.text = SimpleDateFormat("yyyy-MM-dd hh:mm").format(postDTOs[position].timestamp)
 
@@ -61,7 +62,7 @@ class PostRecyclerviewAdapter(var frag : Fragment) : RecyclerView.Adapter<Recycl
         viewHolder.post_favorite_iamge.setOnClickListener {
             favoriteEvent(position)
         }
-        if(postDTOs[position].favorites.containsKey(FirebaseAuth.getInstance().currentUser!!.uid)) {
+        if(postDTOs[position].favorites.containsKey(user?.currentUser!!.uid)) {
             viewHolder.post_favorite_iamge.setImageResource(R.drawable.ic_favorite)
         } else {
             viewHolder.post_favorite_iamge.setImageResource(R.drawable.ic_favorite_border)
@@ -75,7 +76,9 @@ class PostRecyclerviewAdapter(var frag : Fragment) : RecyclerView.Adapter<Recycl
             frag.activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_container,fragment)?.commit()
         }
         viewHolder.post_comment_button.setOnClickListener {
-
+            val intent = Intent(frag.context,PostDetailActivity::class.java)
+            intent.putExtra("postId",postUidList[position])
+            frag.startActivity(intent)
         }
     }
     override fun getItemCount() = postDTOs.size

@@ -3,19 +3,22 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/User/AndroidStudioProjects/MySNS_Project/app/src/main/res/drawable-v24/comment_shape.xml" value="0.1205" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MySNS_Project/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1205" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MySNS_Project/app/src/main/res/drawable/home_post_shpae.xml" value="0.1205" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MySNS_Project/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1205" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MySNS_Project/app/src/main/res/layout/activity_add_post.xml" value="0.264" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MySNS_Project/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MySNS_Project/app/src/main/res/layout/activity_main.xml" value="0.264" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/MySNS_Project/app/src/main/res/layout/activity_post_detail.xml" value="0.6" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MySNS_Project/app/src/main/res/layout/activity_post_detail.xml" value="0.536" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MySNS_Project/app/src/main/res/layout/fragment_alarm.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MySNS_Project/app/src/main/res/layout/fragment_home.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MySNS_Project/app/src/main/res/layout/fragment_myinfo.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MySNS_Project/app/src/main/res/layout/fragment_post_upload.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MySNS_Project/app/src/main/res/layout/fragment_search.xml" value="0.25364583333333335" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/MySNS_Project/app/src/main/res/layout/item_post_recycler.xml" value="0.4" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MySNS_Project/app/src/main/res/layout/item_comment_recycler.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MySNS_Project/app/src/main/res/layout/item_post_detail_recycler.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MySNS_Project/app/src/main/res/layout/item_post_recycler.xml" value="0.264" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MySNS_Project/app/src/main/res/menu/nav_menu.xml" value="0.2" />
       </map>
     </option>
