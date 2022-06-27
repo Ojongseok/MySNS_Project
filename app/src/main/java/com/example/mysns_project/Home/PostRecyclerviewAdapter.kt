@@ -56,8 +56,8 @@ class PostRecyclerviewAdapter(var frag : Fragment) : RecyclerView.Adapter<Recycl
         Glide.with(holder.itemView.context).load(postDTOs[position].imageUrl).into(viewHolder.post_detail_content_image)
         viewHolder.post_detail_text.text = postDTOs[position].explain
         viewHolder.post_favorite_counter.text = "좋아요"+ postDTOs[position].favoriteCount+"개"
+        viewHolder.post_comment_counter.text = "댓글" + postDTOs[position].commentCount +"개"
         viewHolder.post_detail_timestamp.text = SimpleDateFormat("yyyy-MM-dd hh:mm").format(postDTOs[position].timestamp)
-
 
         viewHolder.post_favorite_iamge.setOnClickListener {
             favoriteEvent(position)

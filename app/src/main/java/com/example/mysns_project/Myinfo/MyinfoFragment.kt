@@ -58,8 +58,7 @@ class MyinfoFragment : Fragment() {
                 }
             }
         }
-
-        view?.myinfo_recyclerview?.adapter = MyinfoRecyclerviewAdapter(userId!!)
+        view?.myinfo_recyclerview?.adapter = MyinfoRecyclerviewAdapter(userId!!,this)
         view?.myinfo_recyclerview?.layoutManager = GridLayoutManager(activity,3)
         getProfileImages()
         getFollower()

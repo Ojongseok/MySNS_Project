@@ -54,15 +54,15 @@ class AddPostActivity : AppCompatActivity() {
         storageRef?.putFile(photoUri!!)?.continueWithTask {
             return@continueWithTask storageRef.downloadUrl
         }?.addOnSuccessListener {
-            Toast.makeText(this, "업로드에 성공했습니다.", Toast.LENGTH_SHORT).show()
             var postDTO = PostDTO()
             postDTO.imageUrl = it.toString()
             postDTO.uid = auth?.currentUser?.uid
             postDTO.explain = addpost_edit_explain.text.toString()
             postDTO.userId = auth?.currentUser?.email
             postDTO.timestamp = System.currentTimeMillis()
-
             firestore?.collection("posts")?.document()?.set(postDTO)
+            Toast.makeText(this, "업로드에 성공했습니다.", Toast.LENGTH_SHORT).show()
+
             setResult(Activity.RESULT_OK)
             finish()
         }?.addOnFailureListener {

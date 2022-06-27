@@ -6,10 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.mysns_project.DTO.PostDTO
+import com.example.mysns_project.MainActivity
 import com.example.mysns_project.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -20,6 +22,7 @@ import kotlinx.android.synthetic.main.item_post_recycler.post_detail_content_ima
 import kotlinx.android.synthetic.main.item_post_recycler.post_detail_text
 import kotlinx.android.synthetic.main.item_post_recycler.post_detail_timestamp
 import kotlinx.android.synthetic.main.item_post_recycler.post_detail_username
+import kotlinx.android.synthetic.main.item_post_recycler.view.*
 import java.text.SimpleDateFormat
 
 class PostDetailActivity : AppCompatActivity() {
@@ -30,6 +33,7 @@ class PostDetailActivity : AppCompatActivity() {
         setContentView(R.layout.activity_post_detail)
         firestore = FirebaseFirestore.getInstance()
         user = FirebaseAuth.getInstance()
+        val postId = intent.getStringExtra("postId").toString()
 
         getInfo()
         post_detail_recyclerview.adapter = CommentRecyclerViewAdapter()
@@ -43,7 +47,7 @@ class PostDetailActivity : AppCompatActivity() {
             comment.timestamp = System.currentTimeMillis()
             post_detail_comment_text.text = null
 
-            FirebaseFirestore.getInstance().collection("posts").document(intent.getStringExtra("postId").toString())
+            FirebaseFirestore.getInstance().collection("posts").document(postId)
                 .collection("comments").document().set(comment)
         }
     }
@@ -68,10 +72,10 @@ class PostDetailActivity : AppCompatActivity() {
 
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
             val viewHolder = (holder as CustomViewHolder).itemView
-
             viewHolder.comment_explain_text.text = comments[position].comment
             viewHolder.comment_profile_userid.text = comments[position].userId
             viewHolder.comment_timestamp.text = SimpleDateFormat("yyyy-MM-dd hh:mm").format(comments[position].timestamp)
+
             firestore?.collection("profileImages")?.document(comments[position].uid.toString())?.get()?.addOnSuccessListener {
                 Glide.with(applicationContext).load(it["image"].toString()).into(viewHolder.comment_profile_userimage)
             }?.addOnFailureListener { Toast.makeText(applicationContext,"이미지 불러오기 실패",Toast.LENGTH_SHORT).show() }
@@ -87,9 +91,15 @@ class PostDetailActivity : AppCompatActivity() {
                 post_detail_username.text = value.data!!["userId"].toString()
                 post_detail_timestamp.text = SimpleDateFormat("yyyy-MM-dd hh:mm").format(value.data!!["timestamp"])
                 post_detail_text.text = value.data!!["explain"].toString()
-                Glide.with(this).load(value.data!!["imageUrl"]).into(post_detail_content_image)
+
+                if (!this.isFinishing){
+                    Glide.with(applicationContext).load(value.data!!["imageUrl"]).into(post_detail_content_image)
+                }
 
                 firestore?.collection("profileImages")?.document(value.data!!["uid"].toString())?.get()?.addOnSuccessListener {
+                    if (this.isFinishing){
+                        return@addOnSuccessListener  // 아래 글라이드에서 액티비티없다고 강종돼
+                    }
                     Glide.with(this).load(it["image"].toString()).into(post_detail_profile_image)
                 }
             }
