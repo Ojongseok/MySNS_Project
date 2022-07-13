@@ -10,12 +10,14 @@
         <entry key="..\:/Users/User/AndroidStudioProjects/MySNS_Project/app/src/main/res/layout/activity_add_post.xml" value="0.264" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MySNS_Project/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MySNS_Project/app/src/main/res/layout/activity_main.xml" value="0.264" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/MySNS_Project/app/src/main/res/layout/activity_post_detail.xml" value="0.536" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MySNS_Project/app/src/main/res/layout/activity_post_detail.xml" value="0.264" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MySNS_Project/app/src/main/res/layout/fragment_alarm.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MySNS_Project/app/src/main/res/layout/fragment_chat.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MySNS_Project/app/src/main/res/layout/fragment_home.xml" value="0.25364583333333335" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/MySNS_Project/app/src/main/res/layout/fragment_myinfo.xml" value="0.536" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MySNS_Project/app/src/main/res/layout/fragment_myinfo.xml" value="0.264" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MySNS_Project/app/src/main/res/layout/fragment_post_upload.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MySNS_Project/app/src/main/res/layout/fragment_search.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MySNS_Project/app/src/main/res/layout/item_chat_user.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MySNS_Project/app/src/main/res/layout/item_comment_recycler.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MySNS_Project/app/src/main/res/layout/item_post_detail_recycler.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MySNS_Project/app/src/main/res/layout/item_post_recycler.xml" value="0.264" />

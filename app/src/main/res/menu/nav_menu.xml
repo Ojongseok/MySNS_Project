@@ -23,7 +23,7 @@
         android:id="@+id/item4"
         android:enabled="true"
         android:icon="@drawable/ic_favorite_border"
-        android:title="알림" />
+        android:title="채팅" />
     <item
         android:id="@+id/item5"
         android:enabled="true"

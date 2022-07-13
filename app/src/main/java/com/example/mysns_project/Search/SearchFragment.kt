@@ -1,4 +1,4 @@
-package com.example.mysns_project.Alarm
+package com.example.mysns_project.Chat
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

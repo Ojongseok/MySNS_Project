@@ -25,7 +25,7 @@ import kotlinx.android.synthetic.main.item_post_recycler.post_detail_username
 import kotlinx.android.synthetic.main.item_post_recycler.view.*
 import java.text.SimpleDateFormat
 
-class PostDetailActivity : AppCompatActivity() {
+class PostDetailActivity() : AppCompatActivity() {
     var firestore : FirebaseFirestore? = null
     var user : FirebaseAuth? = null
     override fun onCreate(savedInstanceState: Bundle?) {

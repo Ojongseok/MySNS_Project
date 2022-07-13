@@ -17,6 +17,7 @@ import com.example.mysns_project.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_myinfo.*
 import kotlinx.android.synthetic.main.fragment_myinfo.view.*
 
 class MyinfoFragment : Fragment() {
@@ -36,6 +37,7 @@ class MyinfoFragment : Fragment() {
         if (arguments != null) {
             userId = requireArguments().getString("destinationUid")
             if (userId == currentUid) {  // 나의 정보 페이지
+                view.myinfo_myemail.text = auth?.currentUser?.email
                 view.myinfo_follow_button.text = "로그아웃"
                 view.myinfo_follow_button.setOnClickListener {
                     Toast.makeText(context,"로그아웃 되었습니다.",Toast.LENGTH_SHORT).show()

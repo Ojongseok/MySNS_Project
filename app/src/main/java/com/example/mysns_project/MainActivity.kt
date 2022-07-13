@@ -1,37 +1,45 @@
 package com.example.mysns_project
 
-import android.Manifest
 import android.app.Activity
 import android.content.Intent
-import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
-import androidx.core.content.ContextCompat
-import com.example.mysns_project.Alarm.AlarmFragment
-import com.example.mysns_project.Alarm.SearchFragment
+import com.example.mysns_project.Chat.ChatFragment
+import com.example.mysns_project.Chat.SearchFragment
+import com.example.mysns_project.DTO.FriendDTO
 import com.example.mysns_project.Home.HomeFragment
 import com.example.mysns_project.Myinfo.MyinfoFragment
 import com.example.mysns_project.PostUpload.AddPostActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ktx.database
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.FirebaseFirestoreSettings
+import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(),BottomNavigationView.OnNavigationItemSelectedListener {
     var user : FirebaseAuth? = null
     val PICK_PROFILE_FROM_ALBUM = 10
+    var database : DatabaseReference? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         user = FirebaseAuth.getInstance()
+        database = Firebase.database.reference
 
         bottomNavigationView.setOnNavigationItemSelectedListener(this)
         bottomNavigationView.selectedItemId = R.id.item1
+
+
+        val email = user?.currentUser?.email
+        val uid = user?.currentUser?.uid.toString()
+        var friend = FriendDTO(uid,email)
+        database?.child("users")?.child(uid)?.setValue(friend)
 
     }
 
@@ -62,10 +70,12 @@ class MainActivity : AppCompatActivity(),BottomNavigationView.OnNavigationItemSe
         setToolbarDefault()
         when(item.itemId) {
             R.id.item1 -> {
+                main_toolbar_main_text.text = "SNS 프로젝트"
                 supportFragmentManager.beginTransaction().replace(R.id.main_container,HomeFragment()).commit()
                 return true
             }
             R.id.item2 -> {
+                main_toolbar_main_text.text = "게시물 검색"
                 supportFragmentManager.beginTransaction().replace(R.id.main_container,SearchFragment()).commit()
                 return true
             }
@@ -74,10 +84,12 @@ class MainActivity : AppCompatActivity(),BottomNavigationView.OnNavigationItemSe
                 return true
             }
             R.id.item4 -> {
-                supportFragmentManager.beginTransaction().replace(R.id.main_container,AlarmFragment()).commit()
+                main_toolbar_main_text.text = "채팅 목록"
+                supportFragmentManager.beginTransaction().replace(R.id.main_container,ChatFragment()).commit()
                 return true
             }
             R.id.item5 -> {
+                main_toolbar_main_text.text = "마이 페이지"
                 var myinfoFragment = MyinfoFragment()
                 var uid = user?.currentUser?.uid
                 var bundle = Bundle()
