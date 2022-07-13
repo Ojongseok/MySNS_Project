@@ -45,7 +45,6 @@ class AddPostActivity : AppCompatActivity() {
             onBackPressed()
         }
     }
-
     private fun postUpload() {
         val timeStamp = SimpleDateFormat("yyyyMMdd_hhmmss").format(Date())
         val imageFilename = "JPEG_" + timeStamp + "_.png"
